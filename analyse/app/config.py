@@ -11,7 +11,11 @@ class Settings(BaseSettings):
     groq_model: str = "llama-3.3-70b-versatile"
     database_url: str = DEFAULT_DB_URL
 
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8",
+        "extra": "ignore"
+    }
 
 
 settings = Settings()
