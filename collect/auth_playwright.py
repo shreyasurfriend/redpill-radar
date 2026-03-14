@@ -1,10 +1,13 @@
 import asyncio
 import json
 import os
+from pathlib import Path
+
 from playwright.async_api import async_playwright
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load env from repo root (shared .env)
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 COOKIES_FILE = 'cookies.json'
 

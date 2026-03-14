@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     database_url: str = DEFAULT_DB_URL
 
     model_config = {
-        "env_file": ".env",
+        "env_file": str(REPO_ROOT / ".env"),
         "env_file_encoding": "utf-8",
         "extra": "ignore"
     }

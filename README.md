@@ -35,12 +35,13 @@ python -m venv venv
 venv\Scripts\activate          # Windows
 # source venv/bin/activate     # macOS/Linux
 
-# 2. Install dependencies for the analyse module
+# 2. Install dependencies
 pip install -r analyse/requirements.txt
+pip install -r collect/requirements.txt
 
-# 3. Configure environment
-copy analyse\.env.example analyse\.env
-# Edit analyse/.env with your Groq API key
+# 3. Configure environment (single .env at repo root)
+copy .env.example .env
+# Edit .env with your Groq API key, Twitter credentials, etc.
 
 # 4. Run the analysis API
 cd analyse
@@ -48,3 +49,5 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 API docs available at `http://localhost:8000/docs` once running.
+
+All modules (analyse, collect, dashboard, rebutt) read from the shared `.env` at the repo root.

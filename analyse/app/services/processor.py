@@ -100,6 +100,7 @@ async def reprocess_all_unprocessed():
                 record.harmful_subcategories = analysis.harmful_subcategories
                 record.labels = analysis.model_dump()
                 record.raw_analysis = raw_response
+                record.analysis_status = "completed"
 
                 history = list(record.processing_history or [])
                 history.append(

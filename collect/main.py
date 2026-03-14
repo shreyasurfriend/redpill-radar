@@ -1,9 +1,14 @@
 import asyncio
 import logging
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 from scraper import TwitterScraper
 from api_client import DataProcessorAPI
+
+# Load env from repo root (shared .env)
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 # Configure logging
 logging.basicConfig(
@@ -11,9 +16,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-# Load environment variables
-load_dotenv()
 
 async def main():
     # Define target content keywords
